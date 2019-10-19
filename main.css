@@ -1,7 +1,32 @@
+@media screen and (max-width:800px) {
+    body,.header, #picture, #data, .data_a, #education,#skill {
+      width:90%;
+      margin: 0 auto;
+      padding: 0 auto;
+    }
+  }
+
+  @media screen and (max-width:400px) {
+    body,.header, #picture, #data, .data_a,#education,#skill {
+      width:90%;
+      margin: 0 auto;
+      padding: 0 auto;
+    }
+  }
+
 body{
     background-color: #B8E0FC;
     font-family: 'Barlow Semi Condensed', sans-serif;
     color: #D4E6F1;
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 100%;
+    text-transform : uppercase;
+    font-size: 1.5vw;
+}
+
+img{
+    max-width: 100%;
 }
 
 .clear{
@@ -14,42 +39,51 @@ body{
 h1{
     text-align: center;
     color:#0F1342;
-    text-transform : uppercase;
+    
     font-family: 'Racing Sans One', cursive;
-    font-size: 2.8em;
+    font-size: 3vw;
 }
 
+h2{
+    font-size: 2vw;
+    display: table-row;
+    margin: 30px 30px 30px 30px;
+}
 
 .header{
     background-color: #2E7FF7;
     width: 100%;
     border-radius: 20px;
-    text-align: left;
-    display: flex;
-
+    text-align: center;
 }
 
 #picture{
-    width: 40%;
-    position:relative;
+    width: 50%;
+    position: relative;
     display: inline-block;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 0px 10px;
+    margin: 20px 0px 0px 0px;
+    text-align: center;
+    vertical-align:middle;
+    
 }
 
 #data{
-    width: 40%;
-    position:relative;
+    width: 47%;
+    position: relative;
     display: inline-block;
-    padding: 50px;
-    
+    margin: 20px 0px 0px 0px;
+    text-align: left;
+    vertical-align:middle;
 }
 
 .data_a{
     color:#0F1342;
     font-weight: bold;
     text-transform : uppercase;
-    margin-right: 15px;
+    padding-bottom: 10px;
+    display: table-cell;
+    position: relative;
 }
 
 #education{
@@ -59,8 +93,69 @@ h1{
 
 }
 #skill{
-    background-color: #D6EAF8;
+    background-color: #9490FE;
     color: #0F1342;
     padding: 30px;
 
+}
+
+.logo{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+ul{
+    list-style-type: none;
+}
+
+i{
+    font-size: 3vw;
+}
+
+#contact{
+    font-size: 3.0vw;
+    text-decoration: none;
+    color: #ffffff;
+
+}
+
+footer{
+    background-color: #0F1342;
+    width:100%;
+    color: #ffffff;
+    
+    padding: 20px 10px 20px 10px ;
+    text-align: center;  
+}
+
+.button{
+    background-color: #ffffff;
+    border: none;
+    border-radius: 15px;
+    padding: 0.2em;
+    margin: 2px;
+    text-align: center;
+    color: #2E7FF7;
+    font-size: 2vw;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    text-align: center;       
+  }
+
+.btn{
+    background-color: #ffffff;
+    border: none;
+    padding: 1em;
+    margin: 2px;
+    text-align: center;
+    color: #2E7FF7;
+    text-decoration: none;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 2vw;
+    font-weight: bolder;
+    position: relative;
+    display: inline-block;
+    text-align: center;   
 }
