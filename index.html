@@ -9,7 +9,10 @@
     </head>
 
 <body>
-<h1 id="name">Miss Natthalada Prombut&nbsp;&nbsp;<a href="#edit_name" class="button"><span class="fas fa-edit"></span></a></h1>
+<div style="text-align: center;">
+<h1 id="name" style="display: inline-flex;">Miss Natthalada Prombut</h1>
+<button class="button" onclick="editName();"><span class="fas fa-edit"> edit name</button>
+</div>
 
 
 <div class="header">
@@ -18,7 +21,7 @@
   </div>
 
   <div id="data">
-    <h1><span class="data_a">nickname is Bebiiez.</span></h1>
+    <h1><span class="data_a">My nickname is Bebiiez.</span></h1>
     <h2><span class="data_a"><i class="fas fa-envelope"></i>&nbsp;&nbsp;Email</span> Natthalada.P@gmail.com</h2>
     <h2><span class="data_a"><i class="fas fa-mobile-alt"></i>&nbsp;&nbsp;Phone</span> 086-28433XX</h2>
     <h2><span class="data_a"><i class="fas fa-map-marker-alt"></i>&nbsp;&nbsp;Address</span> Phayathai, Bangkok</h2>
@@ -46,22 +49,116 @@
 
 <div id="skill">
 <button class="btn">SKILL AND QUALIFICATION</button>
-<button style="background-color: #FF0000; color:#FFFFFF;" class="btn">+</button>
-    <ul>
-            <li>Can use Microsoft Office and Adobe Photoshop.</li> 
-            <li>Can use HTML and PHP.</li>
-            <li>Have human relations and be able to work with other people.</li>
-            <li>Responsible, hard-working, coordination skill, and service minded.</li>
-    </ul>
+
+
+    <br><input type="text" id="txt" class="btn" style="background-color: wheat; padding: 5px;">
+        <button onclick="addLI()" style="background-color: #FF0000; color:#FFFFFF; padding: 5px;" class="btn">Add</button>
+        <button onclick="deleteLI()" style="background-color: #FF0000; color:#FFFFFF; padding: 5px;" class="btn">Delete</button>
+        
+        <ul id="list">
+            <li>HTML</li> 
+            <li>CSS</li>
+            <li>Photoshop</li>
+            <li>PHP</li>
+        </ul>
+
 </div>
 
 <br class="clear" />
 
 <footer>
-    <a id="contact" class="fab fa-facebook-square" href="https://www.facebook.com/bb.bebiiez"></a> &nbsp;&nbsp;
-    <a id="contact" class="fab fa-instagram" href="https://www.instagram.com/bbeiiez/"></a>
+    <p>Do you want change background color ? </p>
+    <button class="btn" style="background-color: black;" onmouseenter="changeBG('black');"></button>
+    <button class="btn" style="background-color: white;" onmouseenter="changeBG('white');"></button>
+    <button class="btn" style="background-color: yellow;" onmouseenter="changeBG('yellow');"></button>
+    <button class="btn" style="background-color: red;" onmouseenter="changeBG('red');"></button>
+    <button class="btn" style="background-color: blue;" onmouseenter="changeBG('blue');"></button>
+    <p>
+        <a id="contact" class="fab fa-facebook-square" href="https://www.facebook.com/bb.bebiiez"></a> &nbsp;&nbsp;
+        <a id="contact" class="fab fa-instagram" href="https://www.instagram.com/bbeiiez/"></a>
+    </p>
     <p>Resume project by Natthalada Prombut</p>
 </footer>
+
+<script>
+    function editName(){
+        let name2 = prompt("Please enter your new name", document.getElementById("name").innerText);
+        console.log(name2);
+        if (name2 != null) {
+            document.getElementById("name").innerHTML = name2;
+        }
+    };
+
+    function changeBG(colors) {
+        document.body.style.backgroundColor = colors;
+    };
+
+    
+    
+    let inputText = document.getElementById("txt"),
+    items = document.querySelectorAll("#list li"),
+    tab = [], index;
+         
+    // get the selected li index using array
+    // populate array with li values
+             
+    for(var i = 0; i < items.length; i++){
+        tab.push(items[i].innerHTML);
+        }
+             
+    // get li index onclick
+    for(var i = 0; i < items.length; i++){
+        items[i].onclick = function(){
+            index = tab.indexOf(this.innerHTML);
+            console.log(this.innerHTML + " INDEX = " + index);
+            // set the selected li value into input text
+            inputText.value = this.innerHTML;
+        };
+    }
+    
+    
+    function refreshArray()
+    {
+        // clear array
+        tab.length = 0;
+        items = document.querySelectorAll("#list li");
+        // fill array
+        for(var i = 0; i < items.length; i++){
+            tab.push(items[i].innerHTML);
+        }
+    }
+
+    function addLI(){
+        var listNode = document.getElementById("list"),
+        textNode = document.createTextNode(inputText.value),
+        liNode = document.createElement("LI");
+            
+        liNode.appendChild(textNode);
+        listNode.appendChild(liNode);
+                    
+        refreshArray();
+                    
+        // add event to the new LI
+                    
+        liNode.onclick = function(){
+            index = tab.indexOf(liNode.innerHTML);
+            console.log(liNode.innerHTML + " INDEX = " + index);
+            // set the selected li value into input text
+            inputText.value = liNode.innerHTML;
+        };
+                    
+    }
+              
+    function deleteLI(){
+        refreshArray();
+            
+        if(items.length > 0){
+            items[index].parentNode.removeChild(items[index]);
+            inputText.value = "";
+        }
+    }
+
+</script>
 
 </body>
 </html>
